@@ -1,11 +1,3 @@
-<html>  
-<head>  
-<script type="text/javascript">  
-
-function wip(){
-alert ("the current version of BlackJack is a work in progress game, this means that it is functional but has bugs")
-}
-
 function BlackJack(){
 for (i=0;i<=99;i++)
 {
@@ -19,6 +11,7 @@ if (bet<1){
 alert ("invalid")
 var i=-1
 }
+var initialbet=bet
 }
 
 
@@ -398,6 +391,7 @@ alert ("you lost "+bet)
 }
 if (dvalue==valuek+valuel){
 alert ("tie")
+var tie="true"
 }
 }
 
@@ -481,6 +475,7 @@ alert ("you lost "+bet)
 }
 if (dvalue==valuek+valuel+valuem){
 alert ("tie")
+var tie="true"
 }
 
 }
@@ -568,6 +563,7 @@ alert ("you lost "+bet)
 }
 if (dvalue==valuek+valuel+valuem){
 alert ("tie")
+var tie="true"
 }
 
 }
@@ -660,6 +656,7 @@ alert ("you lost "+bet)
 }
 if (dvalue==valuek+valuel+valuem+valuen){
 alert ("tie")
+var tie="true"
 }
 }
 
@@ -757,6 +754,7 @@ alert ("you lost "+bet)
 }
 if (dvalue==valuek+valuel+valuem+valuen+valueo){
 alert ("tie")
+var tie="true"
 }
 }
 
@@ -805,390 +803,17 @@ alert ("you busted, lost "+bet)
 }
 }
 
-}
-}
-
-
-function rps(){
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-var bet=prompt ("place a bet between 1 and 10",10)
-if (bet>10){
-alert ("invalid")
-var i=-1
-}
-if (bet<1){
-alert ("invalid")
-var i=-1
-}
-var guess=prompt ("choose: rock paper scissors")
-var n=(getRandomInt(3))+1;
-
-if (guess!="rock"){
-if (guess!="paper"){
-if (guess!="scissors"){
-alert ("invalid")
-}
-}
-}
-
-if (n==1){
-//alert ("rock")
-var n="rock"
-}
-if (n==2){
-//alert ("paper")
-var n="paper"
-}
-if (n==3){
-//alert ("scissors")
-var n="scissors"
-}
-if (n==guess){
-alert ("tie")
-}
-
-if (guess=="rock"){
-//alert ("rock")
-if (n=="scissors"){
-var bet=bet*2
-alert ("won " + bet)
-}
-if (n=="paper")
-alert ("lost " + bet)
-}
-if (guess=="paper"){
-//alert ("paper")
-if (n=="rock"){
-var bet=bet*2
-alert ("won " + bet)
-}
-if (n=="scissors")
-alert ("lost " + bet)
-}
-if (guess=="scissors"){
-//alert ("scissors")
-if (n=="paper"){
-var bet=bet*2
-alert ("won " + bet)
-}
-if (n=="rock")
-alert ("lost " + bet)
-}
-}
-
-function guess(){
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
-var bet=prompt ("place a bet between 1 and 10",10)
-if (bet>10){
-alert ("invalid")
-var i=-1
-}
-if (bet<1){
-alert ("invalid")
-var i=-1
-}
-var guess=prompt ("guess a number between 1 and 10")
-var n=(getRandomInt(10))+1;
-alert ("the number is "+n)
-if (n==guess){
-var bet=bet*5
-alert ("you won " + bet)
-}
-if (n!=guess){
-alert ("you lost " + bet)
-}
-}
-
-function coinflip(){
-for (i=0;i<=99;i++)
-{
-if (i==0){
-var bet=prompt ("place a bet between 1 and 10",10)
-if (bet>10){
-alert ("invalid")
-var i=-1
-}
-if (bet<1){
-alert ("invalid")
-var i=-1
-}
-var TotalHeads=0
-//alert (TotalHeads)
-var TotalTails=0
-//alert (TotalTails)
-}
-
-
- (x = (Math.floor(Math.random() * 2) == 0));
-if (x != true)
-var x = "heads"
-
-if (x != "heads")
-var x = "tails"
-
-if (x=="tails"){
-var TotalHeads=TotalHeads+1;
-}
-if (x=="heads"){
-var TotalTails=TotalTails+1;
-}
-var Total = TotalHeads + TotalTails;
-
-//if (x == "heads") alert ("heads<br>")
-//if (x == "tails") alert ("tails<br>")
-
-var a = 1;
-var b = 1
-if (a==1){
-var a=b
-if (c>=0){
-if (x=="heads")
-var b=c+b
-}
-}
-
-if (c==t){
-var t=a
-}
-if (c>=t)
-var t=c
-
-
-
-var c = b;
-
-
-
-if (c>=0){
-//alert (c,t-1)
-}
-
 if (i==99){
-//alert (t-1)
+var wallet=localStorage.wallet
+var wallet=wallet-initialbet
+if (bet>initialbet){
+var wallet=wallet-bet*-1
 }
-
-if (i==99){
-//alert(TotalHeads)
+if (tie=="true"){
+wallet=wallet-initialbet*-1
 }
-
-if (i==99){
-//alert(TotalTails)
-}
-
-if (i==99){
-if (TotalHeads<=50){
-alert ("you lost " + bet)
-}
-}
-
-if (i==99){
-if (TotalHeads>50){
-//alert ("won")
-var bet = bet * 2
-//alert (bet)
-}
-}
-
-if (i==99){
-if (TotalHeads>50){
-alert ("you won " + bet)
-}
+localStorage.wallet=wallet
 }
 
 }
 }
-
-function store(){
-
-rep()
-}
-
-function rep(){
-for (i=0;i<=99;i++)
-{
-if (i==0){
-var bet=prompt ("place a bet between 1 and 10",10)
-if (bet>10){
-alert ("invalid")
-var i=-1
-}
-if (bet<1){
-alert ("invalid")
-var i=-1
-}
-}
-
-
- (x = (Math.floor(Math.random() * 2) == 0));
-if (x != true)
-var x = "heads"
-
-if (x != "heads")
-var x = "tails"
-
-if (x=="tails"){
-var TotalHeads=TotalHeads+1;
-}
-if (x=="heads"){
-var TotalTails=TotalTails+1;
-}
-var Total = TotalHeads + TotalTails;
-
-//if (x == "heads") alert ("heads<br>")
-//if (x == "tails") alert ("tails<br>")
-
-var a = 1;
-var b = 1
-if (a==1){
-var a=b
-if (c>=0){
-if (x=="heads")
-var b=c+b
-}
-}
-
-if (c==t){
-var t=a
-}
-if (c>=t)
-var t=c
-
-
-
-var c = b;
-
-
-
-if (c>=0){
-//alert (c,t-1)
-}
-
-if (i==99){
-//alert (t-1)
-}
-
-
-
-if (i==99){
-if (t-1<7){
-alert ("you lost " + bet)
-}
-}
-
-if (i==99){
-if (t-1>=7){
-//alert ("won")
-var bet = bet * 1.5
-//alert (bet)
-if (t-1>=10)
-//alert ("won big")
-var bet = bet * 10/3
-//alert (bet)
-if (t-1>=14)
-var bet = bet * 5
-if (t-1>=16)
-var bet = bet * 4.2
-}
-}
-
-if (i==99){
-if (t-1>=7){
-alert ("you won " + bet)
-}
-}
-
-
-}
-}
-
-
-
-
-</script>  
-</head>  
-<head> 
-
-
-    <style> 
-
-        .scroll { 
-
-            height: 1000px; 
-
-            background-color: gold; 
-
-        } 
-
-    </style> 
-
-  
-
-</head> 
-
-  
-
-<body> 
-
-    <h1 style="color: gold"> 
-
-      Bet Simulator 
-
-  </h1> 
-<p1 style="color: black"> 
-
- 
-  </p1> 
-
-   <p class="scroll"> 
-
-      1.) Place a bet and you could win 1000! 
-  
-	<input type="Button" value="click to place a bet"
-	onClick="rep()"/>
-<br>
-<br>
-2.) Flip the coin for a chance to double!
-	
-	<input type="Button" value="click to place a bet"
-	onClick="coinflip()"/>
-<br>
-<br>
-3.) Guess the right number to win!
-	
-	<input type="Button" value="click to place a bet"
-	onClick="guess()"/>
-<br>
-<br>
-4.) Win at rock paper scissors to double your bet!
-	
-	<input type="Button" value="click to place a bet"
-	onClick="rps()"/>
-<br>
-<br>
-5.) Test your luck at BlackJack and see if you win!
-	
-	<input type="Button" value="click to place a bet"
-	onClick="BlackJack()"/>
-	
-	<input type="Button" value="(W.I.P.)"
-	onClick="wip()"/> 
-</p> 
-
-</body> 
-
-  
-<body>  
-<p>version 5</p>  
-
-
- 
-
-
-
-
-</body>  
-</html>  

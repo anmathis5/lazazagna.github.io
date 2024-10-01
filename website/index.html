@@ -1,0 +1,145 @@
+<html>  
+<head>  
+<script type="text/javascript">  
+
+function changelog(){
+document.write ("version 1:<br>added game 1<br><br>version 2:<br>added game 2<br><br>version 3:<br>added game 3<br><br>version 4:<br>added game 4<br><br>version 4.1:<br>added more graphics<br><br>version 5:<br>added game 5<br><br>version 5.1:<br>added wallet<br><br>version 5.1.1:<br>wallet fixes for BlackJack<br><br>version 5.1.2:<br>more fixes for BlackJack wallet system, as of this version BlackJack still has bugs to be fixed")
+}
+
+function wip(){
+alert ("the current version of BlackJack is a work in progress game, this means that it is functional but has bugs")
+}
+
+function showwallet(){
+if (localStorage.wallet<0){
+alert ("you owe $"+-localStorage.wallet)
+}
+if (localStorage.wallet>=0){
+alert ("you have $"+localStorage.wallet)
+}
+var reset=prompt("reset?","yes")
+if (reset=="yes"){
+localStorage.wallet=0
+}
+}
+
+function checkfordebt(){
+var mindebt=100
+if (localStorage.wallet<-mindebt){
+alert ("you currently owe more than $"+mindebt+", to continue you must pay your debt")
+var wallet=localStorage.wallet
+var answer=prompt ("would you like to transfer money to your wallet?")
+if (answer!="yes"){
+if (answer!="no"){
+var answer=prompt ("would you like to transfer money to your wallet? you must answer yes or no")
+}
+}
+if (answer=="yes"){
+var transfer=prompt ("you must pay the minimum to continue",-wallet-mindebt)
+if (transfer<0){
+alert ("you can not withdraw any money, you are in debt fool!")
+}
+if (transfer>0){
+localStorage.wallet=wallet-transfer*-1
+}
+}
+if (localStorage.wallet<-mindebt){
+reload
+}
+}
+}
+
+</script>  
+</head>  
+<head> 
+
+
+    <style> 
+
+        .scroll { 
+
+            height: 1000px; 
+
+            background-color: gold; 
+
+        } 
+
+    </style> 
+
+  
+
+</head> 
+
+  
+
+<body> 
+
+    <h1 style="color: gold"> 
+
+      Bet Simulator 
+
+  </h1> 
+<p1 style="color: black"> 
+
+ 
+  </p1> 
+
+   <p class="scroll"> 
+
+      1.) Place a bet and you could win 1000! 
+  
+	<input type="Button" value="click to place a bet"
+	onClick="checkfordebt(),gamble()"/>
+<br>
+<br>
+2.) Flip the coin for a chance to double!
+	
+	<input type="Button" value="click to place a bet"
+	onClick="checkfordebt(),coinflip()"/>
+<br>
+<br>
+3.) Guess the right number to win!
+	
+	<input type="Button" value="click to place a bet"
+	onClick="checkfordebt(),guess()"/>
+<br>
+<br>
+4.) Win at rock paper scissors to double your bet!
+	
+	<input type="Button" value="click to place a bet"
+	onClick="checkfordebt(),rps()"/>
+<br>
+<br>
+5.) Test your luck at BlackJack and see if you win!
+	
+	<input type="Button" value="click to place a bet"
+	onClick="checkfordebt(),BlackJack()"/>
+	
+	<input type="Button" value="(W.I.P.)"
+	onClick="wip()"/> 
+</p> 
+
+</body> 
+
+  
+<body>  
+<p><input type="Button" value="version 5.1.2"
+	onClick="changelog()"/> 	<input type="Button" value="wallet"
+	onClick="showwallet()"/></p>  
+
+
+
+
+
+</body>  
+<script src=BlackJack.js>
+</script>
+<script src=CoinFlip.js>
+</script>
+<script src=Gamble.js>
+</script>
+<script src=Guess.js>
+</script>
+<script src=RockPaperScissors.js>
+</script>
+</html>  
